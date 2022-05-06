@@ -16,3 +16,17 @@ a {
 body {
   font-family: 'Montserrat';
 }
+
+.login {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
