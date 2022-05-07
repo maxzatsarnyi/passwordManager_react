@@ -1,0 +1,21 @@
+@import url('/src/index.scss');
+
+.home {
+    min-height: 100vh;
+    padding: 50px 10px;
+
+    h1 {
+        text-align: center;
+    }
+    
+    &__desc {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    &__accounts {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
