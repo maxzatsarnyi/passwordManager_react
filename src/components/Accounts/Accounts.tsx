@@ -27,11 +27,13 @@ export const Accounts: FC<Props> = () => {
   const [isEditModal, setIsEditModal] = useState<boolean>(false);
   const [editData, setEditData] = useState<IAccountData | null>(null);
 
-  const handleCloseAddingModal = () => setIsAddingModal((prev) => !prev);
-
-  const handleCloseEditModal = () => {
-    setIsEditModal((prev) => !prev);
+  const handleCloseAddingModal = () => {
     setEditData(null);
+    setIsAddingModal((prev) => !prev);
+  };
+  const handleCloseEditModal = () => {
+    setEditData(null);
+    setIsEditModal((prev) => !prev);
   };
 
   const openEditModal = (data: IAccountData) => {
