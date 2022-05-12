@@ -8,12 +8,15 @@
     border-radius: 15px;
     padding: 30px 0 0 0;
 
-
     &__add-icon {
         position: absolute;
         right: 15px;
         top: 15px;
         cursor: pointer;
+        transition: 0.2s ease-in;
+        &:hover {
+            transform: scale(1.10);
+        }
     }
 
     &__title {
@@ -43,7 +46,6 @@
         transition: 0.2s ease-in;
 
         &:hover {
-            // transform: scale(1.01);
             background-color: #f6f6f6;
         }
     }
@@ -77,77 +79,4 @@
         color: #000000;
         white-space: nowrap;
     }
-    // width: 400px;
-    // background: #FFFFFF;
-    // border: 1px solid #BDBDBD;
-    // border-radius: 15px;
-    // padding: 30px 20px;
-    // display: flex;
-    // flex-direction: column;
-    // text-align: center;
-    // &__title {
-    //     font-style: normal;
-    //     font-weight: 500;
-    //     font-size: 24px;
-    //     line-height: 33px;
-    //     color: #ADADAD;
-    // }
-
-    // &__undertitle {
-    //     margin-top: 15px;
-    //     font-style: normal;
-    //     font-weight: 500;
-    //     font-size: 24px;
-    //     line-height: 33px;
-    //     color: #000000;
-    // }
-
-    // &__desc {
-    //     margin-top: 15px;
-    //     font-style: normal;
-    //     font-weight: 600;
-    //     font-size: 14px;
-    //     line-height: 19px;
-    //     color: #000000;
-    // }
-
-    // input {
-    //     height: 52px;
-    //     border: 1px solid #C2C8D0;
-    //     border-radius: 3px;
-    //     margin-top: 20px;
-    //     padding: 0 10px 0 15px;
-    // }
-
-    // button {
-    //     margin-top: 20px;
-    //     height: 45px;
-    //     background-color: #2188FF;
-    //     border: none;
-    //     outline: none;
-    //     color: white;
-    //     font-size: 16px;
-    //     border-radius: 3px;
-    //     cursor: pointer;
-    //     transition: 0.2s ease-in;
-    //     border: 1px solid #2188FF;
-    //     &:hover {
-    //         background-color: #fff;
-    //         color: #2188FF;
-    //         transform: scale(1.03);
-    //     }
-    // }
-
-    // &__redirect {
-    //     margin-top: 20px;
-    //     span {
-    //         a {
-    //             transition: 0.2s ease-in;
-    //             color: #2188FF;
-    //             &:hover {
-    //                 color: #000000;
-    //             }
-    //         }
-    //     }
-    // }
 }

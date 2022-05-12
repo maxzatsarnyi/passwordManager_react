@@ -35,13 +35,41 @@
         color: #000000;
     }
 
-    input {
-        height: 52px;
+    &__label {
+        position: relative;
         border: 1px solid #C2C8D0;
-        border-radius: 3px;
         margin-top: 20px;
-        padding: 0 10px 0 15px;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
     }
+
+    &__input {
+        width: 100%;
+        height: 52px;
+        padding: 0 50px 0 15px;
+        outline: none;
+        border: none;
+    }
+
+    &__eye-icon {
+        position: absolute;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    &__input--notvalid {
+        border: 1px solid rgb(244, 74, 74);
+    }
+
+    &__error {
+        color: rgb(244, 74, 74);
+        margin: 10px 0 10px 0;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    
 
     button {
         margin-top: 20px;
@@ -74,4 +102,8 @@
             }
         }
     }
+}
+
+.error {
+    visibility: visible;
 }

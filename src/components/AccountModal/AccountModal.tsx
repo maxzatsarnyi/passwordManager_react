@@ -1,19 +1,19 @@
 import React, { ChangeEvent, FC, SyntheticEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './_accountModal.scss';
-import { FcApproval } from 'react-icons/fc';
 import {
   AiOutlineCloseCircle,
   AiOutlineEyeInvisible,
   AiOutlineEye,
 } from 'react-icons/ai';
 import { IAccountData } from '../../entities';
+import { AuthState } from '../../AuthContext';
 
 type Props = {
   isEdit: boolean;
   isOpen: boolean;
   handleClose: () => void;
   editData?: IAccountData | null;
+  action: (data: IAccountData) => void;
 };
 
 export const AccountModal: FC<Props> = ({
@@ -21,7 +21,9 @@ export const AccountModal: FC<Props> = ({
   isOpen,
   handleClose,
   editData = null,
+  action,
 }) => {
+  const { token } = AuthState();
   const [data, setData] = useState(
     isEdit && editData
       ? editData
@@ -31,7 +33,6 @@ export const AccountModal: FC<Props> = ({
           password: '',
         }
   );
-
   const [isPassVisible, setIsPassVisible] = useState(false);
 
   const toggleVisible = () => setIsPassVisible((prev) => !prev);
@@ -48,15 +49,21 @@ export const AccountModal: FC<Props> = ({
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    // onSubmit();
+    if (!isEdit) {
+      action({ ...data, userId: token });
+      handleClose();
+    } else {
+      action({ ...data });
+      handleClose();
+    }
   };
 
   return (
     <div className={`accountModal ${isOpen && 'accountModal--visible'}`}>
       <div className='accountModal__background'></div>
-      <form className='accountModal__form'>
+      <form className='accountModal__form' onSubmit={handleSubmit}>
         <AiOutlineCloseCircle
-          size={30}
+          size={35}
           className='accountModal__close'
           onClick={handleClose}
         />
@@ -81,6 +88,7 @@ export const AccountModal: FC<Props> = ({
             name='login'
           />
         </div>
+
         <div className='accountModal__label'>
           <label htmlFor='password'>Password</label>
           <div className='accountModal__input'>
@@ -105,6 +113,7 @@ export const AccountModal: FC<Props> = ({
             )}
           </div>
         </div>
+
         <button className='accountModal__button' type='submit'>
           Save
         </button>

@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthState } from '../../AuthContext';
 import { Accounts } from '../../components/Accounts/Accounts';
 import './_home.scss';
 
 const Home = () => {
+  const { token } = AuthState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+  }, [token]);
+
   return (
     <div className='home'>
       <div className='container'>
@@ -18,4 +29,5 @@ const Home = () => {
     </div>
   );
 };
+
 export default Home;
