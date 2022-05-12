@@ -9,4 +9,5 @@
  
 # Instructions
 
-1) To creation
+1) You need to create .env file and a varible inside REACT_APP_SECRET_KEY
+2) assing to REACT_APP_SECRET_KEY any private key, it's used for encrypting and decrypting passwords
